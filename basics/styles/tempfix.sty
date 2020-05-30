@@ -1,0 +1,61 @@
+\renewcommand\setdigitfont[2][]{%
+  \let\glb@currsize\relax
+  \setkeys*[xepersian-mathsdigitspec]{options}{#1}%
+  \edef\@tempa{\noexpand\zf@fontspec{Mapping=parsidigits,%
+    \XKV@rm}{#2}}\@tempa
+  \xepersian@PackageInfo{Defining the default Persian maths digits font as '#2'}
+  \DeclareSymbolFont{OPERATORS}   {EU1}{\zf@family} {m}{n}
+  \def\persianmathsdigits{%
+  \SetMathCode{`0}{\mathalpha}{OPERATORS}{`0}
+  \SetMathCode{`1}{\mathalpha}{OPERATORS}{`1}
+  \SetMathCode{`2}{\mathalpha}{OPERATORS}{`2}
+  \SetMathCode{`3}{\mathalpha}{OPERATORS}{`3}
+  \SetMathCode{`4}{\mathalpha}{OPERATORS}{`4}
+  \SetMathCode{`5}{\mathalpha}{OPERATORS}{`5}
+  \SetMathCode{`6}{\mathalpha}{OPERATORS}{`6}
+  \SetMathCode{`7}{\mathalpha}{OPERATORS}{`7}
+  \SetMathCode{`8}{\mathalpha}{OPERATORS}{`8}
+  \SetMathCode{`9}{\mathalpha}{OPERATORS}{`9}
+  \SetMathCode{`\%}{\mathbin}{OPERATORS}{`٪}
+  \SetMathCharDef{\decimalseparator}{\mathpunct}{OPERATORS}{"066B}}
+}
+% For correcting the bug of Glossaries package.
+\renewcommand{\@do@wrglossary}[1]{%
+  \protected@edef\@glslocref{\theglsentrycounter}%
+  \@gls@checkmkidxchars\@glslocref
+  \expandafter\ifx\theHglsentrycounter\theglsentrycounter
+    \def\@glo@counterprefix{}%
+  \else
+    \protected@edef\@glsHlocref{\theHglsentrycounter}%
+    \@gls@checkmkidxchars\@glsHlocref
+    \edef\@do@gls@getcounterprefix{\noexpand\@gls@getcounterprefix
+      {\@glslocref}{\@glsHlocref}%
+    }%
+    \@do@gls@getcounterprefix
+  \fi
+\ifglsxindy
+  \expandafter\@glo@check@mkidxrangechar\@glsnumberformat\@nil
+  \def\@glo@range{}%
+  \expandafter\if\@glo@prefix(\relax
+    \def\@glo@range{:open-range}%
+  \else
+    \expandafter\if\@glo@prefix)\relax
+      \def\@glo@range{:close-range}%
+    \fi
+  \fi
+  \glossary[\csname glo@#1@type\endcsname]{%
+  (indexentry :tkey (\csname glo@#1@index\endcsname)
+    :locref \string"{\@glo@counterprefix}{\theglsentrycounter}\string" %
+    :attr \string"\@gls@counter\@glo@suffix\string"
+    \@glo@range
+  )
+  }%
+\else
+  \@set@glo@numformat{\@glo@numfmt}{\@gls@counter}{\@glsnumberformat}%
+    {\@glo@counterprefix}%
+  \glossary[\csname glo@#1@type\endcsname]{%
+  \string\glossaryentry{\csname glo@#1@index\endcsname
+    \@gls@encapchar\@glo@numfmt}{\theglsentrycounter}}%
+\fi
+}
+
