@@ -1,4 +1,0 @@
-\beamer@sectionintoc {1}{مبانی}{3}{0}{1}
-\beamer@subsectionintoc {1}{1}{متن ساده}{3}{0}{1}
-\beamer@sectionintoc {2}{لیست‌های بدون شماره و با شماره}{4}{0}{2}
-\beamer@sectionintoc {3}{کار با تصویر و جدول}{9}{0}{3}

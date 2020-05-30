@@ -4,38 +4,17 @@
 %Set the slide theme
 %Change to meet your taste
 % Madrid, Copenhagen, Berlin, ... works
-% \usetheme{Madrid} 
-\usetheme{metropolis}
+\usetheme{Madrid} 
+%\usetheme{metropolis}
+
 
 \usepackage{xecolor}
 \usepackage{amsmath}
 %\usefonttheme[onlymath]{serif} %Change the math font
-\usepackage{graphicx}
-\graphicspath{{./images/}}
-% \usepackage[nottoc]{tocbibind}
-% \usepackage{wasysym}
- \usepackage{natbib}
-\usepackage{doi}
- \usepackage{eso-pic}
- \usepackage{textpos}
-\addtobeamertemplate{frametitle}{}{%
-\begin{textblock*}{100mm}(-.88\textwidth,-1cm)
-\includegraphics[width=1.cm]{arm_en}
-\end{textblock*}}
-\usepackage{xepersian}
 
-\settextfont[Scale=1]{Yas}
-% \setlatintextfont[Scale=1]{Times New Roman}
-\setdigitfont{Yas}
-\defpersianfont\titr{Yas}
-\defpersianfont\nast{Yas}
-% \bibliographystyle{asa-fa}
-\bibliographystyle{chicago-fa.bst}
-\renewcommand{\bibsection}{}
-% {\bibliographystyle{./styles/iut-fa.bst}
-% {\bibliographystyle{ieeetr-fa.bst}
-% {\bibliographystyle{plainurl}
-% {\bibliographystyle{plain-fa}
+\usepackage{xepersian}
+\settextfont{XB Roya}
+
 %---------------------------------------------------------------------------------
 % Seetings to force Beamer works with Xepersian and RTL typesetting
 %-------------------------------------------------------------------------------
@@ -52,23 +31,16 @@
 % To force beamer use numbering in captions
 \setbeamertemplate{caption}[numbered]{}% Number float-like environments
 
-%  \logo{{\includegraphics[width=1.4cm]{logo}}} 
-% \newcommand{\nologo}{\setbeamertemplate{logo}{}}
-\usebackgroundtemplate%
-{%
-    \includegraphics[width=\paperwidth,height=\paperheight]{uspex2}%
-}
+
+
 %---------------------------------------------------------------------------------
 \title{
 استفاده از Beamer برای تهیه اسلاید پارسی
 }
 \subtitle{ساخت اسلاید با زی‌پرشین و بیمر به روش ساده‌}
-\author[مرصاد مستقیمی]{مرصاد مستقیمی
-\\[.1cm]
- استاد راهنما: دکتر محمود اشرفی زاده
-}
-\institute[صنعتی اصفهان]{دانشگاه: صنعتی اصفهان}
-\date{\today}
+\author{محمد رحمانی}
+\institute{دانشگاه صنعتی امیرکبیر}
+\date{تابستان ۱۳۹۶}
 
 
 \begin{document}
@@ -76,27 +48,9 @@
 %------------------------------------------
 % Title page
 %------------------------------------------
-% 
-% {\nologo
-\begin{frame}[plain,noframenumbering]
-%برای عدم نمایش نوار بالایی و پایین در فرم آپشن plain و برای اینکه جزء شماره اسلاید محسوب نشود آپشن فرم noframenumbering قرار داده شده است.
-% \centerline{\includegraphics[width=\paperwidth,height=\paperheight]{besm2.jpg}}
-%دو انتخاب برای بسم الله هر کدام را نمی خواهید کامنت و دیگری را فعال کنید
-\centerline{\includegraphics[width=0.99\paperwidth,height=0.99\paperheight]{besmellah}}
-\end{frame}
-%%%%%%%%%%%%%%
 \begin{frame}
-
-\begin{picture}(0,0)
-\put (-300,-125){\centerline{\includegraphics[width=1.9cm]{logo}}}
-\end{picture}
-\vskip 0.20 in
 \maketitle
 \end{frame}
-% }
-% \begin{frame}
-% \maketitle
-% \end{frame}
 
 % To adjust the paragraphs in RTL
 \everypar{\rightskip\rightmargin}
@@ -105,8 +59,6 @@
 \section{مبانی}
 \subsection{متن ساده}
 این یک نمونه بسیار ساده از اسلاید است که با بیمر و زی‌پرشین ساخته شده‌است.
-
- درکل بلور گسترده‌اند\LTRfootnote{\citet{Marzari2012}}
 
 از فونت آزاد Roya XB برای این اسلاید استفاده شده‌است. این فونت در اینترنت موجود است و باید روی کامپیوتر شما نصب شده باشد یا در فولدر قابل دسترس برای زی‌لاتک باشد
 
@@ -230,14 +182,6 @@ $ y=\int_{a}^{b\gamma+\epsilon} f(x) dx $
 
 
 \end{frame}
-\begin{frame}{مراجع}
-\footnotesize
-\renewcommand\refname{}
-\renewcommand{\addcontentsline}[3]{}% Remove functionality of \addcontentsline
-\renewcommand{\section}[2]{}% Remove functionality of \section
- \begin{latin}
-\bibliography{./chapters/bib}
-\end{latin}
-\end{frame}
+
 \end{persian}
 \end{document}
